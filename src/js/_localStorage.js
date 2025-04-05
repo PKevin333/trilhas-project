@@ -1,15 +1,19 @@
+import { setError } from "./_handleError.js";
 import showMessageModal from "./_showModal.js";
 import validateForm from "./_validateForm.js";
 
 export default function initLocalStorage() {
-    const formItems = Array.from(document.querySelector('.form-page form')).reduce((acc, formField) => formField.id ? { ...acc, [formField.id]: formField } : acc, {});
+    const registerPage = document.querySelector(".form-page");
+
     const trilhaCheckboxes = document.querySelectorAll('.form-page .trilha-checkbox input');
     const saveButton = document.querySelector('.form-page .tertiary');
     const cancelButton = document.querySelector('.form-page .secondary');
-    window.formData = {};
     const registerButton = document.querySelector('.form-page .primary');
+    window.formData = {};
 
-    if(formItems && trilhaCheckboxes) {
+    if(registerPage && trilhaCheckboxes) {
+        const formItems = Array.from(registerPage.querySelector('form')).reduce((acc, formField) => formField.id ? { ...acc, [formField.id]: formField } : acc, {});
+
         function validJSON(str) {
             try {
                 JSON.parse(str);
@@ -42,10 +46,14 @@ export default function initLocalStorage() {
                 if(element.type === 'checkbox') {
                     window.formData[element.id] = element.checked;
                 } else {
+                    if(element.type === 'file') {
+                        return;
+                    }
                     window.formData[element.id] = element.value;
                 };
             });
             localStorage.setItem('formData', JSON.stringify(window.formData));
+            showMessageModal("Preenchimento salvo com sucesso!");
         };
 
         function clearLocalStorage(event) {
@@ -71,22 +79,48 @@ export default function initLocalStorage() {
             });
         };
 
+        function userExists(username, password) {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const isUser = users.find(user =>
+                user['idUser'] === username && user['idPassword'] === password
+            );
+
+            return isUser;
+        };
+
         function registerUser(event) {
             event.preventDefault();
             const isValidForm = validateForm();
+            let newUser = {};
             
             if(!isValidForm) {
                 showMessageModal("Não é um formulário válido, corrija os erros");
                 return;
             };
 
-            saveFormData();
+            Object.values(formItems).forEach(element => {
+                if(element.type === 'checkbox') {
+                    newUser[element.id] = element.checked;
+                } else {
+                    if(element.type === 'file') {
+                        return;
+                    }
+                    newUser[element.id] = element.value;
+                };
+            });
+
+            if(userExists(newUser['idUser'], newUser['idPassword'])) {
+                showMessageModal("Já existe um usuário com esse nome.");
+                setError(formItems['idUser'], "* Esse nome já existe, tente outro");
+                return;
+            };
+
             let users = localStorage.getItem('users');
             users = users ? JSON.parse(users) : [];
-            users.push({ ...window.formData });
+            users.push({ ...newUser });
             localStorage.setItem('users', JSON.stringify(users));
-            console.log("Usuário registrado com sucesso");
-        }
+            showMessageModal("Usuário registrado com sucesso");
+        };
 
         saveButton.addEventListener('click', saveFormData);
         cancelButton.addEventListener('click', clearLocalStorage);

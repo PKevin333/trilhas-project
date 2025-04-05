@@ -1,7 +1,9 @@
 export default function initFormatingForm() {
-    const formItems = Array.from(document.querySelector('.form-page form')).reduce((acc, formField) => formField.id ? { ...acc, [formField.id]: formField } : acc, {});
+    const registerPage = document.querySelector(".form-page");
 
-    if(formItems) {
+    if(registerPage) {
+        const formItems = Array.from(registerPage.querySelector('form')).reduce((acc, formField) => formField.id ? { ...acc, [formField.id]: formField } : acc, {});
+        
         function formatCPF() {
             let value = formItems['idCpf'].value.replace(/\D/g, '');
 

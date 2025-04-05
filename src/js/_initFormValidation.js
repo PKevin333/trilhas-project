@@ -2,12 +2,20 @@ import fetchData from "./_fetchData.js";
 import { setError, removeError, isErrorActive } from "./_handleError.js";
 
 export default function initFormValidation() {
-    const formItems = Array.from(document.querySelector('.form-page form')).reduce((acc, formField) => formField.id ? { ...acc, [formField.id]: formField } : acc, {});
+    const registerPage = document.querySelector(".form-page");
 
 
-    if(formItems) {
+    if(registerPage) {
+        const formItems = Array.from(registerPage.querySelector('form')).reduce((acc, formField) => formField.id ? { ...acc, [formField.id]: formField } : acc, {});
+
         function handleBlur({ target })  {
             switch (target.id) {
+                case 'idUser':
+                    handleUsername();
+                    break;
+                case 'idPassword':
+                    handlePassword();
+                    break;
                 case 'idName':
                     handleName();
                     break;
@@ -37,6 +45,42 @@ export default function initFormValidation() {
                     break;
                 default:
                     break;
+            };
+        };
+
+        function handleUsername() {
+            const usernameField = formItems['idUser'];
+
+            if(usernameField) {
+                if(
+                    usernameField.value.trim() === '' ||
+                    usernameField.value.trim().length <= 3
+                ) {
+                    setError(usernameField, "* Digite um nome de usuário, precisa ter mais que 3 digitos");
+                } else {
+                    if(isErrorActive(usernameField)) {
+                        removeError(usernameField);
+                    };
+                };
+            };
+        };
+
+        function handlePassword() {
+            const passwordField = formItems['idPassword'];
+
+            if(passwordField) {
+                if(
+                    passwordField.value.trim() === '' ||
+                    passwordField.value.trim().length < 8 ||
+                    !/[0-9]/.test(passwordField.value.trim())
+                ) {
+                    setError(passwordField, "* Digite uma senha válida, deve ter 8 ou mais caracteres e pelo menos 1 número");
+                } else {
+                    if(isErrorActive(passwordField)) {
+                        console.log("Não entrou no if")
+                        removeError(passwordField);
+                    };
+                };
             };
         };
 
@@ -203,6 +247,8 @@ export default function initFormValidation() {
                 formItems['idCidade'].disabled = true;
                 formItems['idEstado'].value = address.uf;
                 formItems['idEstado'].disabled = true;
+                handleRua();
+                handleCidade(); 
 
                 if(isErrorActive(CEP)) {
                     removeError(CEP);
@@ -265,9 +311,7 @@ export default function initFormValidation() {
                 if(!isMarked) {
                     setError(checkboxes[0], "* É obrigatório marcar 1 opção");
                 } else {
-                    console.log("Entrou: ", checkboxes[0])
                     if(isErrorActive(checkboxes[0])) {
-                        console.log("Entrou 2")
                         removeError(checkboxes[0]);
                     };
                 };

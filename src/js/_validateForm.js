@@ -7,6 +7,12 @@ export default function validateForm() {
     function validate()  {
         Object.values(formItems).forEach(element => {
             switch (element.id) {
+                case 'idUser':
+                    handleUsername();
+                    break;
+                case 'idPassword':
+                    handlePassword();
+                    break;
                 case 'idName':
                     handleName();
                     break;
@@ -51,6 +57,33 @@ export default function validateForm() {
         handleCheckboxes();
 
         return isValid;
+    };
+
+    function handleUsername() {
+        const usernameField = formItems['idUser'];
+
+        if(usernameField) {
+            if(
+                usernameField.value.trim() === '' ||
+                usernameField.value.trim().length <= 3
+            ) {
+                setError(usernameField, "* Digite um nome de usuário, precisa ter mais que 3 digitos");
+            };
+        };
+    };
+
+    function handlePassword() {
+        const passwordField = formItems['idPassword'];
+
+        if(passwordField) {
+            if(
+                passwordField.value.trim() === '' ||
+                passwordField.value.trim().length < 8 ||
+                !/[0-9]/.test(passwordField.value.trim())
+            ) {
+                setError(passwordField, "* Digite uma senha válida, deve ter 8 ou mais caracteres e pelo menos 1 número");
+            };
+        };
     };
 
     function handleName() {

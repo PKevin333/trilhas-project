@@ -13,7 +13,6 @@ export function setError(inputElement, text = "") {
             message.innerText = text;
         } else if(inputElement.type === 'checkbox') {
             if(inputElement.id === 'idTermos') {
-                console.log("Entrou no erro do Termos");
                 const errorMessage = document.querySelector(".termo-error");
 
                 errorMessage.classList.remove("hidden");
@@ -101,7 +100,7 @@ export function removeError(inputElement) {
                 });
             };
         } else {
-            const errorMessage = parentElement.querySelector("form-error");
+            const errorMessage = parentElement.querySelector(".form-error");
             parentElement.removeChild(errorMessage);
             inputElement.classList.remove("error");
         };
