@@ -6,6 +6,191 @@ export default function initFormValidation() {
 
 
     if(formItems) {
+        function handleBlur({ target })  {
+            switch (target.id) {
+                case 'idName':
+                    handleName();
+                    break;
+                case 'idNasc':
+                    handleDate();
+                    break;
+                case 'idCpf':
+                    handleCPF();
+                    break;
+                case 'idEmail':
+                    handleEmail();
+                    break;
+                case 'idTelefone':
+                    handleTelefone();
+                    break;
+                case 'idCep':
+                    handleCep();
+                    break;
+                case 'idRua':
+                    handleRua();
+                    break;
+                case 'idNum':
+                    handleHouseNum();
+                    break;
+                case 'idCidade':
+                    handleCidade();
+                    break;
+                default:
+                    break;
+            };
+        };
+
+        function handleName() {
+            const nameField = formItems['idName'];
+
+            if(nameField) {
+                if(
+                    nameField.value.trim() === '' ||
+                    nameField.value.trim().length < 2 ||
+                    !nameField.value.trim().includes(' ') ||
+                    nameField.value.split(' ')[0].length < 2
+                ) {
+                    setError(nameField, "* Digite seu nome completo");
+                } else {
+                    if(isErrorActive(nameField)) {
+                        removeError(nameField);
+                    };
+                };
+            };
+        };
+
+        function handleDate() {
+            const dateField = formItems['idNasc'];
+
+            if(dateField) {
+                if(
+                    dateField.value === '' ||
+                    dateField.value.length < 10
+                ) {
+                    if(isErrorActive(dateField)) {
+                        removeError(dateField);
+                    };
+                    setError(dateField, "* Insira uma data válida");
+                } else if (
+                    Number(dateField.value.slice(0,4)) < 1940
+                ) {
+                    if(isErrorActive(dateField)) {
+                        removeError(dateField);
+                    };
+                    setError(dateField, "* Insira a sua data de nascimento");
+                } else if (
+                    Number(dateField.value.slice(0,4)) > 2019
+                ) {
+                    if(isErrorActive(dateField)) {
+                        removeError(dateField);
+                    };
+                    setError(dateField, "* Você deve ter mais de 16 anos para se registrar");
+                } else {
+                    if(isErrorActive(dateField)) {
+                        removeError(dateField);
+                    };
+                };
+            };
+        };
+
+        function handleCPF() {
+            const CPF = formItems['idCpf'];
+
+            if(CPF) {
+                if(
+                    CPF.value === '' ||
+                    CPF.value.length < 14
+                ) {
+                    setError(CPF, "* Insira um CPF válido");
+                } else {
+                    if(isErrorActive(CPF)) {
+                        removeError(CPF);
+                    };
+                };
+            };
+        };
+
+        function handleEmail() {
+            const emailField = formItems['idEmail'];
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if(emailField) {
+                if(
+                    emailField.value.trim() === '' ||
+                    !emailRegex.test(emailField.value)
+                ) {
+                    setError(emailField, "* Insira um e-mail válido")
+                } else {
+                    if(isErrorActive(emailField)) {
+                        removeError(emailField);
+                    };
+                };
+            };
+        };
+
+        function handleTelefone() {
+            const telField = formItems["idTelefone"];
+
+            if(telField) {
+                if(
+                    telField.value === '' ||
+                    telField.value.length < 14
+                ) {
+                    setError(telField,  "* Insira um telefone válido")
+                } else {
+                    if(isErrorActive(telField)) {
+                        removeError(telField);
+                    };
+                };
+            };
+        };
+
+        function handleFile({ target }) {
+            const fileField = target;
+            const container = fileField.parentElement.querySelector(".upload-icon");
+            const icon = fileField.parentElement.querySelector(".upload-icon img");
+            const text = fileField.parentElement.querySelector(".upload-icon p");
+            const fileNameRegex = /[^\\/]+$/;
+            
+            if(fileField && container && icon && text) {
+                if(
+                    fileField.value === '' ||
+                    (!fileField.value.endsWith(".pdf") &&
+                    !fileField.value.endsWith(".jpg"))
+                ) {
+                    setError(fileField, "O arquivo precisa ter extensão *.jpg ou *.pdf, tente de novo");
+                } else {
+                    if(isErrorActive(fileField)) {
+                        removeError(fileField);
+                    };
+
+                    if(fileField.value.endsWith(".pdf")) {
+                        icon.setAttribute("src", "../assets/pdf.png");
+                    } else {
+                        icon.setAttribute("src", "../assets/jpg.png");
+                    };
+
+                    text.innerText = fileField.value.match(fileNameRegex)[0];
+                }
+            };
+        };
+
+        function handleHouseNum() {
+            const houseNum = formItems["idNum"];
+
+            if(houseNum) {
+                if(
+                    houseNum.value === ''
+                ) {
+                    setError(houseNum, "* Insira um número")
+                } else {
+                    if(isErrorActive(houseNum)) {
+                        removeError(houseNum);
+                    };
+                };
+            };
+        };
+
         async function handleCep() {
             const CEP = formItems['idCep'];
             
@@ -38,7 +223,81 @@ export default function initFormValidation() {
             };
         };
 
-        formItems['idCep'].addEventListener('blur', handleCep);
+        function handleRua() {
+            const streetField = formItems['idRua'];
+
+            if(streetField) {
+                if(
+                    streetField.value.trim() === '' ||
+                    streetField.value.trim().length < 2
+                ) {
+                    setError(streetField, "* Digite o nome da rua/logradouro");
+                } else {
+                    if(isErrorActive(streetField)) {
+                        removeError(streetField);
+                    };
+                };
+            };
+        };
+
+        function handleCidade() {
+            const cityField = formItems['idCidade'];
+
+            if(cityField) {
+                if(
+                    cityField.value.trim() === '' ||
+                    cityField.value.trim().length < 2
+                ) {
+                    setError(cityField, "* Digite o nome da cidade");
+                } else {
+                    if(isErrorActive(cityField)) {
+                        removeError(cityField);
+                    };
+                };
+            };
+        };
+
+        function handleCheckboxes() {
+            const checkboxes = document.querySelectorAll(".trilhas .trilha-checkbox input");
+            const isMarked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+            if(checkboxes) {
+                if(!isMarked) {
+                    setError(checkboxes[0], "* É obrigatório marcar 1 opção");
+                } else {
+                    console.log("Entrou: ", checkboxes[0])
+                    if(isErrorActive(checkboxes[0])) {
+                        console.log("Entrou 2")
+                        removeError(checkboxes[0]);
+                    };
+                };
+            };
+        };
+
+        function handleTermo() {
+            const termoField = formItems['idTermos'];
+
+            if(termoField) {
+                if(!termoField.checked) {
+                    setError(termoField);
+                } else {
+                    if(isErrorActive(termoField)) {
+                        removeError(termoField);
+                    };
+                };
+            };
+        };
+
+        Object.values(formItems).forEach(element => {
+            if(element.id === 'idDoc' || element.id === 'idResi') {
+                element.addEventListener('change', handleFile);
+            } else if(element.id === 'idTermos') {
+                element.addEventListener('change', handleTermo);
+            } else if(element.type === 'checkbox') {
+                element.addEventListener('change', handleCheckboxes);
+            };
+            element.addEventListener('blur', handleBlur);
+        });
 
         if(formItems['idCep'].value) {
             handleCep();

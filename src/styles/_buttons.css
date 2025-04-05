@@ -28,6 +28,16 @@
     padding: 12px 24px;
     font-weight: bold;
     background-color: var(--surface-white);
+    color: var(--brand-blue);
+    border: 1px solid var(--brand-blue);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.tertiary {
+    padding: 12px 24px;
+    font-weight: bold;
+    background-color: var(--surface-white);
     color: var(--brand-orange);
     border: 1px solid var(--brand-orange);
     border-radius: 8px;

@@ -18,3 +18,38 @@ fieldset div {
     height: 18px;
     width: 18px;
 }
+
+.trilha-checkbox.error,
+.trilha-checkbox.error::after {
+    border: 1px solid var(--semantic-error) !important;
+}
+
+.form-error.checkbox-error {
+    bottom: -6%;
+    transform: translate(0, 6%);
+}
+
+.form-page form fieldset:nth-child(5) {
+    position: relative;
+}
+
+.termo-error {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    bottom: -30%;
+    transform: translate(0, 30%);
+    font-size: 14px;
+    color: var(--semantic-error);
+}
+
+.termo-error.hidden {
+    display:none;
+}
+
+.termo-error img {
+    margin-right: 4px;
+    height: 18px;
+    width: 18px;
+}

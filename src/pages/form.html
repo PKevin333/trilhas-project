@@ -23,6 +23,17 @@
             <p>Preencha abaixo para fazer sua inscrição no programa Trilhas.</p>
             <form action="#">
                 <fieldset>
+                    <h4>Informações de Login</h4>
+                    <div>
+                        <label for="idUser">Nome de Usuário</label>
+                        <input id="idUser" type="text" name="name" required>
+                    </div>
+                    <div>
+                        <label for="idPassword">Senha</label>
+                        <input id="idPassword" type="password" name="name" required>
+                    </div>
+                </fieldset>
+                <fieldset>
                     <h4>Informações do participante</h4>
                     <div>
                         <label for="idName">Nome Completo</label>
@@ -30,7 +41,7 @@
                     </div>
                     <div>
                         <label for="idNasc">Data de Nascimento</label>
-                        <input id="idNasc" type="date" name="nasc" min="1940-01-01" required>
+                        <input id="idNasc" type="date" name="nasc" min="1940-01-01" max="9999-01-01" required>
                     </div>
                     <div>
                         <label for="idCpf">CPF</label>
@@ -165,15 +176,30 @@
                     </div>
                 </fieldset>
                 <fieldset>
-                    <span class="checkmark"></span>
                     <input type="checkbox" name="termos" id="idTermos">
                     <label for="idTermos">Declaro que li e concordo com os <a href="#" class="emphasis">Termos e Condições</a> e com a <a href="#" class="emphasis">Política de Privacidade</a>.</label>
+                    <div class="termo-error hidden">
+                        <img src="../assets/icons/alert-circle.svg" alt="Um círculo com interrogação em tom vermelho, indicando alerta de erro.">
+                        <span>* É necessário aceitar os termos</span>
+                    </div>
                 </fieldset>
                 <div class="buttons">
                     <button class="secondary">Cancelar</button>
+                    <button class="tertiary">Salvar Preenchimento</button>
                     <button class="primary">Fazer Inscrição</button>
                 </div>
             </form>
+            <div class="modal-container">
+                <div class="modal">
+                    <div class="modal-header">
+                        <img src="../assets/capa/logo-trilhas.png" alt="Logo do desafio Trilhas">
+                    </div>
+                    <div>
+                        <p><span class="modal-message"></span></p>
+                    </div>
+                    <button class="modal-button primary">OK</button>
+                </div>
+            </div>
         </main>
         <aside>
             <div class="illustrations">

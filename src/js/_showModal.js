@@ -1,8 +1,7 @@
-export default function showErrorModal() {
+export default function showMessageModal(message) {
     const modalButton = document.querySelector(".modal-button");
     const modalContainer = document.querySelector(".modal-container");
     const errorMessage = document.querySelector(".modal-message");
-    const message = "Login efetuado com sucesso"
 
     if (modalButton && modalContainer) {
         function toggleModal() {
