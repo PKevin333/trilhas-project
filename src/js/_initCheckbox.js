@@ -30,5 +30,6 @@ export default function initCheckbox() {
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', handleCheckboxBehavior);
         });
+        handleChecked();
     };
 };
