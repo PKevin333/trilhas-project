@@ -1,0 +1,10 @@
+@import '_reset.css';
+@import '_variables.css';
+@import '_grid.css';
+@import '_general.css';
+@import '_titles.css';
+@import '_buttons.css';
+@import '_main-page.css';
+@import '_form-login.css';
+@import '_form-register.css';
+@import '_responsive.css';

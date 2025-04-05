@@ -1,0 +1,45 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 100vh;
+    background-image: url('../assets/capa/capa-desafio.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+main.home img {
+    max-width: 300px;
+}
+
+/* main.home a img {
+    max-width: 250px;
+} */
+
+main.home a {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 300px) {
+    main.home img {
+        max-width: 100%;
+        height: auto;
+        width: auto\9;
+    }
+    
+    /* main.home a img {
+        max-width: 200px;
+    } */
+}

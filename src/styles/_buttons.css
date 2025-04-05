@@ -1,0 +1,58 @@
+.back-button {
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.primary {
+    padding: 12px 24px;
+    font-weight: bold;
+    background-color: var(--brand-orange);
+    color: var(--surface-white);
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.login-box .primary {
+    font-size: 14px;
+    width: 100%;
+}
+
+.secondary {
+    padding: 12px 24px;
+    font-weight: bold;
+    background-color: var(--surface-white);
+    color: var(--brand-orange);
+    border: 1px solid var(--brand-orange);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.primary:hover,
+.primary:active {
+    background-color: rgba(243,84,28,0.6);
+    color: rgba(255,255,255,0.6);
+}
+
+.secondary:hover,
+.secondary:active {
+    background-color: rgba(255,255,255,0.9);
+    color: rgba(243,84,28,0.9);
+    border: 1px solid  rgba(243,84,28,0.9);
+}
+
+.primary:active {
+    padding: 10px 22px;
+    margin: 2px;
+}
+
+.secondary:active {
+    padding: 10px 22px;
+    margin: 2px;
+}

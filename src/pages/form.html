@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/icons/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+
+    <title>Trilhas - Desafio 2B</title>
+</head>
+<body>
+    <div class="form-page">
+        <main>
+            <a href="../../index.html" class="back-button">
+                <img src="../assets/icons/left-arrow.svg" alt="Uma seta apontando para esquerda, indicando retorno.">
+                <span>Voltar</span>
+            </a>
+            <h2>Formulário de Inscrição</h2>
+            <p>Preencha abaixo para fazer sua inscrição no programa Trilhas.</p>
+            <form action="#">
+                <fieldset>
+                    <h4>Informações do participante</h4>
+                    <div>
+                        <label for="idName">Nome Completo</label>
+                        <input id="idName" type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="idNasc">Data de Nascimento</label>
+                        <input id="idNasc" type="date" name="nasc">
+                    </div>
+                    <div>
+                        <label for="idCpf">CPF</label>
+                        <input id="idCpf" type="text" name="cpf">
+                    </div>
+                    <div class="select-arrow-field">
+                        <label for="idSexo">Sexo</label>
+                        <select id="idSexo" name="sexo" >
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="none">Prefiro não dizer</option>
+                        </select>
+                        <img src="../assets/icons/down-arrow.svg" alt="Seta apontando para baixo">
+                    </div>
+                    <div>
+                        <label for="idEmail">E-mail</label>
+                        <input id="idEmail" type="email" name="email">
+                    </div>
+                    <div>
+                        <label for="idTelefone">Telefone</label>
+                        <input id="idTelefone" type="text" name="telefone">
+                    </div>
+                    <div>
+                        <label for="idDoc">Documento de Identidade
+                            <div class="upload-icon">
+                                <img src="../assets/icons/cloud-upload.svg" alt="Uma nuvem com uma seta apontando para cima, indicando upload.">
+                                <p>Clique aqui para selecionar o arquivo</p>
+                            </div>
+                            <input id="idDoc" type="file" name="doc">
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <h4>Endereço Residencial</h4>
+                    <div>
+                        <label for="idCep">CEP</label>
+                        <input id="idCep" type="text" name="cep">
+                    </div>
+                    <div class="duo-field">
+                        <div>
+                            <label for="idRua">Rua</label>
+                            <input id="idRua" type="text" name="rua">
+                        </div>
+                        <div>
+                            <label for="idNum">Número</label>
+                            <input id="idNum" type="text" name="num">
+                        </div>
+                    </div>
+                    <div class="duo-field">
+                        <div>
+                            <label for="idCidade">Cidade</label>
+                            <input id="idCidade" type="text" name="cidade">
+                        </div>
+                        <div>
+                            <label for="idEstado">Estado</label>
+                            <select id="idEstado" name="estado">
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                                <option value="EX">EX</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="idResi">Comprovante de Residência
+                            <div class="upload-icon">
+                                <img src="../assets/icons/cloud-upload.svg" alt="Uma nuvem com uma seta apontando para cima, indicando upload.">
+                                <p>Clique aqui para selecionar o arquivo</p>
+                            </div>
+                            <input id="idResi" type="file" name="resi">
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <h4>Trilhas de Aprendizagem</h4>
+                    <P>Selecione apenas uma trilha</P>
+                    <div class="trilhas">
+                        <label class="trilha-checkbox" for="frontEnd" >
+                            <img class="marked" src="../assets/icons/check-marked.svg" alt="Um círculo marcado e preenchido com cor laranja.">
+                            <input type="checkbox" name="front-end" id="frontEnd">
+                            <img src="../assets/front-end.svg" alt="Ícone simples de uma página web com marcadores de fechamento de tag.">
+                            Programação Front-End
+                        </label>
+                        <label class="trilha-checkbox" for="backEnd" >
+                            <img class="marked" src="../assets/icons/check-marked.svg" alt="Um círculo marcado e preenchido com cor laranja.">
+                            <input type="checkbox" name="back-end" id="backEnd">
+                            <img src="../assets/back-end.svg" alt="Ícone simples de uma página web com colchetes">
+                            Programação Back-End
+                        </label>
+                        <label class="trilha-checkbox" for="jogos" >
+                            <img class="marked" src="../assets/icons/check-marked.svg" alt="Um círculo marcado e preenchido com cor laranja.">
+                            <input type="checkbox" name="jogos" id="jogos">
+                            <img src="../assets/jogos.svg" alt="Ícone de um controle de videogame.">
+                            Programação de Jogos
+                        </label>
+                        <label class="trilha-checkbox" for="designExp" >
+                            <img class="marked" src="../assets/icons/check-marked.svg" alt="Um círculo marcado e preenchido com cor laranja.">
+                            <input type="checkbox" name="design" id="designExp">
+                            <img src="../assets/ux.svg" alt="Ícone simples com as letras UX, se referindo à experiência de usuário.">
+                            Design e Experiência
+                        </label>
+                        <label class="trilha-checkbox" for="cienciaDados" >
+                            <img class="marked" src="../assets/icons/check-marked.svg" alt="Um círculo marcado e preenchido com cor laranja.">
+                            <input type="checkbox" name="ciencia-dados" id="cienciaDados">
+                            <img src="../assets/dados.svg" alt="Ícone simples de um gráfico em colunas.">
+                            Ciência de Dados
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <span class="checkmark"></span>
+                    <input type="checkbox" name="termos" id="idTermos">
+                    <label for="idTermos">Declaro que li e concordo com os <a href="#" class="emphasis">Termos e Condições</a> e com a <a href="#" class="emphasis">Política de Privacidade</a>.</label>
+                </fieldset>
+                <div class="buttons">
+                    <button class="secondary">Cancelar</button>
+                    <button class="primary">Fazer Inscrição</button>
+                </div>
+            </form>
+        </main>
+        <aside>
+            <div class="illustrations">
+                <img src="../assets/Ilustration.png" alt="Um homem em um laptop, sentado em livros, com um videogame e mochila no chão próximo à ele.">
+                <img src="../assets/logos.png" alt="Logo do projeto Trilhas e do projeto Inova Maranhão">
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+.emphasis {
+    color: var(--text-highlight);
+}
+
+aside {
+    background-color: var(--brand-blue);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ESPAÇAMENTOS */
+
+main {
+    padding: 4rem;
+}
+
+p,
+.main .back-button {
+    font-size: 1rem;
+}
+
+h2 {
+    margin-bottom: 8px;
+}
+
+main .back-button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    margin-bottom: 1.5rem;
+    font-size: 16px;
+}
+
+main .back-button span {
+    margin-left: 8px;
+}
+
+fieldset {
+    margin: 2.75rem 0;
+    border: 0;
+}
+
+fieldset > div:not(:last-child) {
+    margin: 24px 0;
+}
+
+fieldset:nth-child(3) > p {
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.upload-icon {
+    margin-top: 8px;
+}

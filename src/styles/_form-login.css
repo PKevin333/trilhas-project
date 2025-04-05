@@ -1,0 +1,46 @@
+.login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    border-radius: 6px;
+    background-color: var(--surface-white);
+}
+
+.login-box > form,
+.login-box > form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box > form {
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box > form label {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.login-box > form input {
+    padding: 6px 12px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: var(--text-primary);
+    border: 2px solid var(--stroke-default);
+    border-radius: 10px;
+}
+
+.login-box > form input:focus {
+    border: 2px solid var(--brand-light-orange);
+    transition: 0.5s;
+    --webkit-transition: 0.5s;
+    outline: none;
+}
+
+.login-box a {
+    margin-top: 16px;
+    color: var(--brand-blue);
+    text-decoration: underline;
+}

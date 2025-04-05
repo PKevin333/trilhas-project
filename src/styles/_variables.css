@@ -1,0 +1,28 @@
+:root {
+    /* CORES DA MARCA */
+    --brand-light-orange: #F67841;
+    --brand-orange: #F3541C;
+    --brand-red: #E43A12;
+    --brand-blue: #2135A6;
+    /* CORES DO TEXTO */
+    --text-primary: #292524;
+    --text-secondary: #57534E;
+    --text-ternary: #8F8881;
+    --text-highlight: #E43A12;
+    /* CORES DA SUPERFÍCIE */
+    --surface-white: #FFFFFF;
+    --surface-secondary: #FEE7D6;
+    --surface-disabled: #E7E5E4;
+    /* CORES DE TRAÇOS */
+    --stroke-default: #D6D3D1;
+    --stroke-upload: #ABA29E;
+    --stroke-highlight: #F3541C;
+    /* CORES DE ERRO */
+    --semantic-error: #DC2626;
+    /* CONFIGURAÇÕES DE GRID */
+    --cols: 12;
+    --gutter: 20px;
+    --l-device: 1200px;
+    --m-device: 760px;
+    --s-device: 480px;
+}

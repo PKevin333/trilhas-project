@@ -1,0 +1,80 @@
+/* MEDIA QUERIES BASE */
+@media screen and (max-width: 759px) {
+    main {
+        padding: 44px;
+        max-width: 100%;
+    }
+    aside {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6.25rem;
+    }
+    aside .illustrations {
+        position: static;
+        width: 100%;
+        margin-left: 0;
+    }
+    aside .illustrations img:last-child {
+        min-width:18.75rem;
+    }
+    aside .illustrations img:first-child {
+        display: none;
+    }
+    .form-page {
+        grid-template-columns:  1fr;
+        grid-template-areas: 
+        "aside"
+        "main"
+        ;
+    }
+    .trilhas {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .trilhas label {
+        width: 100%;
+    }
+    .duo-field {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 760px) and (max-width: 1199px) {
+    main {
+        max-width: 100%;
+    }
+    aside {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6.25rem;
+    }
+    aside .illustrations {
+        position: static;
+        width: 100%;
+        margin-left: 0;
+    }
+    aside .illustrations img:last-child {
+        min-width:18.75rem;
+    }
+    aside .illustrations img:first-child {
+        display: none;
+    }
+    .form-page {
+        grid-template-columns:  1fr;
+        grid-template-areas: 
+        "aside"
+        "main"
+        ;
+    }
+    .trilhas {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1650px) {
+    .trilhas {
+        grid-template-columns: 1fr 1fr;
+    }
+}
