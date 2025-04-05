@@ -16,7 +16,7 @@ main {
     padding: 4rem;
 }
 
-p,
+.form-page p,
 .main .back-button {
     font-size: 1rem;
 }
