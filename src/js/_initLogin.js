@@ -7,6 +7,7 @@ export default function initLogin() {
 
     if(username, password, loginButton) {
         function loginUser(event) {
+            // VERIFICA SE OS CAMPOS CORRESPONDEM À UM USUÁRIO REGISTRADO
             event.preventDefault();
             const username = document.getElementById('idUsername').value.trim();
             const password = document.getElementById('idPassword').value.trim();

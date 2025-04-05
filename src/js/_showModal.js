@@ -5,6 +5,7 @@ export default function showMessageModal(message) {
 
     if (modalButton && modalContainer) {
         function toggleModal() {
+            // ATIVA E DESATIVA O MODAL
             modalContainer.classList.toggle('ativo');
             if(!modalContainer.classList.contains('ativo')) {
                 modalButton.removeEventListener('click', toggleModal);
@@ -12,6 +13,7 @@ export default function showMessageModal(message) {
         };
 
         function outclickModal(event) {
+            // VERIFICA SE O CLICK DO USUÁRIO FOI FORA DO MODAL
             if (event.target === this) {
                 toggleModal();
                 modalContainer.removeEventListener('click', outclickModal);
@@ -19,6 +21,7 @@ export default function showMessageModal(message) {
         };
 
         function showErrorMessage() {
+            // MODIFICA E EXIBE A MENSAGEM PASSADA PARA FUNÇÃO
             errorMessage.textContent = message;
             toggleModal();
         };

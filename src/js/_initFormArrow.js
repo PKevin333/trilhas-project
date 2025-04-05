@@ -9,6 +9,7 @@ export default function initFormArrow() {
         }
 
         function handleSelectBehaviour() {
+            // RESPONSÁVEL POR MODIFICAR A DIREÇÃO DA SETA DO SELECT
             if(isOpen) {
                 selectArrow.setAttribute("style", "transform: translate(-50%, 0) rotate(180deg) scaleX(-1)");
             } else {
@@ -17,6 +18,7 @@ export default function initFormArrow() {
         }
 
         function handleSelectClick(event) {
+            // MODIFICA ESTADO DO SELECT DE ACORDO COM EVENTO DE CLICK DO MOUSE
             const rect = selectElement.getBoundingClientRect();
             const { clientX, clientY } = event;
             const IsInComponent = 
@@ -33,11 +35,13 @@ export default function initFormArrow() {
         };
 
         function handleSelectBlur() {
+            // MODIFICA O ESTADO DO SELECT DE ACORDO COM O EVENTO DE BLUR
             setIsOpen(false);
             handleSelectBehaviour()
         };
 
         function handleSelectKey(event) {
+            // MODIFICA ESTADO DO SELECT DE ACORDO COM EVENTO DE TECLADO
             if(event.key === 'Enter' || event.keycode === 13 || event.key === ' ' || event.keycode === 32) {
                 setIsOpen(true);
             };
@@ -45,6 +49,7 @@ export default function initFormArrow() {
         };
 
         function handleMousePress() {
+            // MODIFICA ESTADO DO SELECT DE ACORDO COM EVENTO PRESS DO MOUSE
             setIsOpen(!isOpen);
             handleSelectBehaviour();
         }

@@ -5,6 +5,7 @@ export default function validateForm() {
     let isValid = true;
 
     function validate()  {
+        // ITERA SOBRE O FORMULÁRIO, VERIFICANDO A VALIDADE DOS DADOS
         Object.values(formItems).forEach(element => {
             switch (element.id) {
                 case 'idUser':
@@ -60,6 +61,7 @@ export default function validateForm() {
     };
 
     function handleUsername() {
+        // VERIFICA SE O CAMPO DE USERNAME SEGUE OS CRITÉRIOS ESTABELECIDOS
         const usernameField = formItems['idUser'];
 
         if(usernameField) {
@@ -73,6 +75,7 @@ export default function validateForm() {
     };
 
     function handlePassword() {
+        // VERIFICA SE O CAMPO DE PASSWORD SEGUE OS CRITÉRIOS ESTABELECIDOS
         const passwordField = formItems['idPassword'];
 
         if(passwordField) {
@@ -87,6 +90,7 @@ export default function validateForm() {
     };
 
     function handleName() {
+        // VERIFICA SE O CAMPO DE NOME SEGUE OS CRITÉRIOS ESTABELECIDOS
         const nameField = formItems['idName'];
 
         if(nameField) {
@@ -103,6 +107,7 @@ export default function validateForm() {
     };
 
     function handleDate() {
+        // VERIFICA SE O CAMPO DE DATA SEGUE OS CRITÉRIOS ESTABELECIDOS
         const dateField = formItems['idNasc'];
 
         if(dateField) {
@@ -127,6 +132,7 @@ export default function validateForm() {
     };
 
     function handleCPF() {
+        // VERIFICA SE O CAMPO DE CPF SEGUE OS CRITÉRIOS ESTABELECIDOS
         const CPF = formItems['idCpf'];
 
         if(CPF) {
@@ -141,6 +147,7 @@ export default function validateForm() {
     };
 
     function handleEmail() {
+        // VERIFICA SE O CAMPO DE EMAIL SEGUE OS CRITÉRIOS ESTABELECIDOS
         const emailField = formItems['idEmail'];
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -156,6 +163,7 @@ export default function validateForm() {
     };
 
     function handleTelefone() {
+        // VERIFICA SE O CAMPO DE TELEFONE SEGUE OS CRITÉRIOS ESTABELECIDOS
         const telField = formItems["idTelefone"];
 
         if(telField) {
@@ -170,6 +178,7 @@ export default function validateForm() {
     };
 
     function handleFile(element) {
+        // VERIFICA SE O CAMPO DE ARQUIVO SEGUE OS CRITÉRIOS ESTABELECIDOS
         const fileField = element;
         
         if(fileField) {
@@ -185,6 +194,7 @@ export default function validateForm() {
     };
 
     function handleHouseNum() {
+        // VERIFICA SE O CAMPO DE NÚMERO SEGUE OS CRITÉRIOS ESTABELECIDOS
         const houseNum = formItems["idNum"];
 
         if(houseNum) {
@@ -198,6 +208,7 @@ export default function validateForm() {
     };
 
     function handleCep() {
+        // VERIFICA SE O CAMPO DE CEP SEGUE OS CRITÉRIOS ESTABELECIDOS
         const CEP = formItems['idCep'];
         
         if(CEP.value === '' || CEP.value.length < 9) {
@@ -207,6 +218,7 @@ export default function validateForm() {
     };
 
     function handleRua() {
+        // VERIFICA SE O CAMPO DE RUA SEGUE OS CRITÉRIOS ESTABELECIDOS
         const streetField = formItems['idRua'];
 
         if(streetField) {
@@ -221,6 +233,7 @@ export default function validateForm() {
     };
 
     function handleCidade() {
+        // VERIFICA SE O CAMPO DE CIDADE SEGUE OS CRITÉRIOS ESTABELECIDOS
         const cityField = formItems['idCidade'];
 
         if(cityField) {
@@ -235,6 +248,7 @@ export default function validateForm() {
     };
 
     function handleCheckboxes() {
+        // VERIFICA SE HÁ CHECKBOX MARCADA E ESTABELECE OBRIGATORIEDADE
         const checkboxes = document.querySelectorAll(".trilha-checkbox input");
         const isMarked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
@@ -245,6 +259,7 @@ export default function validateForm() {
     };
 
     function handleTermo() {
+        // VERIFICA SE O CAMPO DE TERMOS FOI SELECIONADO
         const termoField = formItems['idTermos'];
 
         if(termoField) {

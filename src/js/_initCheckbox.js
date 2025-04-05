@@ -3,6 +3,7 @@ export default function initCheckbox() {
 
     if(checkboxes) {
         function handleChecked() {
+            // COLOCA E REMOVE OS ESTILOS DE MARCADO/DESMARCADO NAS CHECKBOXES
             checkboxes.forEach(checkbox => {
                 if(checkbox.checked === true) {
                     checkbox.parentElement.setAttribute("style", "border: 1px solid #F3541C;");
@@ -15,6 +16,7 @@ export default function initCheckbox() {
         };
 
         function verifyChecked(target) {
+            // VERIFICA SE HÁ CHECKBOXES MARCADAS ERRONEAMENTE
             checkboxes.forEach(checkbox => {
                 if(checkbox != target && checkbox.checked === true) {
                     checkbox.checked = false;
@@ -23,6 +25,7 @@ export default function initCheckbox() {
         };
 
         function handleCheckboxBehavior(event) {
+            // AO OCORRER MUDANÇAS VERIFICA MARCAÇÃO E MODIFICA ESTILOS
             verifyChecked(event.target);
             handleChecked();
         }

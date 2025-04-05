@@ -1,3 +1,4 @@
+// REALIZA A REQUISIÇÃO DOS DADOS E RETORNA A RESPOSTA
 export default async function fetchData(url) {
     try {
         const response = await fetch(url);

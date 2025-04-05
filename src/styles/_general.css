@@ -33,6 +33,7 @@ main .back-button {
     border: 0;
     margin-bottom: 1.5rem;
     font-size: 16px;
+    color: var(--text-secondary);
 }
 
 main .back-button span {

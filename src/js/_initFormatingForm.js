@@ -2,9 +2,12 @@ export default function initFormatingForm() {
     const registerPage = document.querySelector(".form-page");
 
     if(registerPage) {
+        // GERA UM ARRAY A PARTIR DO FORM, EM SEGUIDA UM OBJETO
+        // ONDE KEY = ID DO INPUT | VALUE = ELEMENTO HTML DO INPUT
         const formItems = Array.from(registerPage.querySelector('form')).reduce((acc, formField) => formField.id ? { ...acc, [formField.id]: formField } : acc, {});
-        
+
         function formatCPF() {
+            // FORMATA O CAMPO DE CPF PARA ATENDER AO FORMATO PADRÃO
             let value = formItems['idCpf'].value.replace(/\D/g, '');
 
             if (value.length > 11) {
@@ -23,6 +26,7 @@ export default function initFormatingForm() {
         };
         
         function formatPhone() {
+            // FORMATA O CAMPO DE TELEFONE PARA ATENDER AO FORMATO PADRÃO
             let value = formItems['idTelefone'].value.replace(/\D/g, '');
 
             if (value.length > 11) {
@@ -45,6 +49,7 @@ export default function initFormatingForm() {
         };
 
         function formatCEP() {
+            // FORMATA O CAMPO DE CEP PARA ATENDER AO FORMATO PADRÃO
             let value = formItems['idCep'].value.replace(/\D/g, '');
         
             if(value.length > 8) {

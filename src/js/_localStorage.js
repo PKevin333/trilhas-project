@@ -24,6 +24,7 @@ export default function initLocalStorage() {
         };
 
         function loadLocalStorage() {
+            // CARREGA AS INFORMAÇÕES DE PREENCHIMENTO DO LOCALSTORAGE
             const localFormData = localStorage.getItem('formData');
             if(localFormData && validJSON(localFormData)) {
                 const formData = JSON.parse(localFormData);
@@ -41,6 +42,7 @@ export default function initLocalStorage() {
         };
 
         function saveFormData(event) {
+            // SALVA OS DADOS PREENCHIDOS NO LOCALSTORAGE
             event.preventDefault();
             Object.values(formItems).forEach(element => {
                 if(element.type === 'checkbox') {
@@ -57,6 +59,7 @@ export default function initLocalStorage() {
         };
 
         function clearLocalStorage(event) {
+            // APAGA OS DADOS DO PREENCHIMENTO NO LOCALSTORAGE
             event.preventDefault();
             localStorage.removeItem('formData');
             localStorage.removeItem('users');
@@ -80,6 +83,7 @@ export default function initLocalStorage() {
         };
 
         function userExists(username, password) {
+            // VERIFICA SE O USUARIO JÁ EXISTE NO LOCALSTORAGE
             const users = JSON.parse(localStorage.getItem('users')) || [];
             const isUser = users.find(user =>
                 user['idUser'] === username && user['idPassword'] === password
@@ -89,6 +93,7 @@ export default function initLocalStorage() {
         };
 
         function registerUser(event) {
+            // REGISTRA UM USUÁRIO VERIFICANDO A VALIDADE DOS DADOS
             event.preventDefault();
             const isValidForm = validateForm();
             let newUser = {};
