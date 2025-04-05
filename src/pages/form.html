@@ -26,15 +26,15 @@
                     <h4>Informações do participante</h4>
                     <div>
                         <label for="idName">Nome Completo</label>
-                        <input id="idName" type="text" name="name">
+                        <input id="idName" type="text" name="name" required>
                     </div>
                     <div>
                         <label for="idNasc">Data de Nascimento</label>
-                        <input id="idNasc" type="date" name="nasc">
+                        <input id="idNasc" type="date" name="nasc" min="1940-01-01" required>
                     </div>
                     <div>
                         <label for="idCpf">CPF</label>
-                        <input id="idCpf" type="text" name="cpf">
+                        <input id="idCpf" type="text" name="cpf" required>
                     </div>
                     <div class="select-arrow-field">
                         <label for="idSexo">Sexo</label>
@@ -47,11 +47,11 @@
                     </div>
                     <div>
                         <label for="idEmail">E-mail</label>
-                        <input id="idEmail" type="email" name="email">
+                        <input id="idEmail" type="email" name="email" required>
                     </div>
                     <div>
                         <label for="idTelefone">Telefone</label>
-                        <input id="idTelefone" type="text" name="telefone">
+                        <input id="idTelefone" type="text" name="telefone" required>
                     </div>
                     <div>
                         <label for="idDoc">Documento de Identidade
@@ -67,22 +67,22 @@
                     <h4>Endereço Residencial</h4>
                     <div>
                         <label for="idCep">CEP</label>
-                        <input id="idCep" type="text" name="cep">
+                        <input id="idCep" type="text" name="cep" required>
                     </div>
                     <div class="duo-field">
                         <div>
                             <label for="idRua">Rua</label>
-                            <input id="idRua" type="text" name="rua">
+                            <input id="idRua" type="text" name="rua" required>
                         </div>
                         <div>
                             <label for="idNum">Número</label>
-                            <input id="idNum" type="number" name="num">
+                            <input id="idNum" type="number" name="num" required>
                         </div>
                     </div>
                     <div class="duo-field">
                         <div>
                             <label for="idCidade">Cidade</label>
-                            <input id="idCidade" type="text" name="cidade">
+                            <input id="idCidade" type="text" name="cidade" required>
                         </div>
                         <div>
                             <label for="idEstado">Estado</label>
