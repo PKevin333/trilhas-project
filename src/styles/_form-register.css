@@ -12,9 +12,7 @@
     display: none;
 }
 
-.form-page form [type='text'],
-.form-page form [type='email'],
-.form-page form [type='date'],
+.form-page form input,
 .form-page form select {
     height: 48px;
     width: 100%;
@@ -49,14 +47,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     top: 50%;
     right: 8px;
     transform: translate(-50%, 0);
-}
-
-.form-page form input:focus,
-.form-page form select:focus {
-    border: 2px solid var(--brand-light-orange);
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
 }
 
 .form-page form .upload-icon {

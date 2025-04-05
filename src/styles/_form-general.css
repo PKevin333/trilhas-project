@@ -1,3 +1,36 @@
-input:disabled {
+input:disabled,
+select:disabled {
     background-color: var(--surface-disabled);
+}
+
+.form-page form input:focus,
+.form-page form select:focus,
+.form-page form input.error,
+.form-page form select.error {
+    border: 2px solid;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.form-page form input:focus,
+.form-page form select:focus {
+    border-color: var(--brand-light-orange);
+}
+
+.form-page form input.error,
+.form-page form select.error {
+    border-color: var(--semantic-error);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    appearance: none;
+    -moz-appearance:textfield;
 }
